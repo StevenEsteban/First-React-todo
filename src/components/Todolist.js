@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Form from './Form'
 import Todo from './Todo'
 
+const LSKEY = "TodoBrowser"
 
 function Todolist() {
     const [todos,setTodos] = useState ([])
@@ -13,14 +14,16 @@ function Todolist() {
         console.log(...todos)
     };
 
+
+
     const removeTask = id => {
 const remove = [...todos].filter(todo => todo.id !==id)
 setTodos(remove);
 }
 
-const modifyTask = (taskId, modifiedTask) => {
+const modifyTask = (taskId, newValue) => {
 
-    setTodos(previous => previous.map(item =>(item.id=== taskId ? modifiedTask : item)))
+    setTodos(prev => prev.map(item =>(item.id=== taskId ? newValue : item)))
 }
 
 
@@ -34,6 +37,13 @@ const modifyTask = (taskId, modifiedTask) => {
         setTodos(doneTasks);
     }
 
+    
+
+    // useEffect(() => {
+    //     window.localStorage.setItem(LSKEY + ".todos", JSON.stringify(todos));
+    // }, [todos]);
+
+    // const data = JSON.stringify(localStorage.getItem('data'))
 
 
     return (

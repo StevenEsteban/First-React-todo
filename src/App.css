@@ -3,3 +3,16 @@ body {
     justify-content: center;
     background-color: rgb(88, 162, 197);
 }
+
+.icons {
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.delete {
+    margin-right: 15px;
+}
+
+.todo-row {
+    margin-top: 7px;
+}

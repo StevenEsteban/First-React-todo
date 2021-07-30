@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import Form from './Form'
-import Todolist from './Todolist'
 import {CgCloseR} from 'react-icons/cg'
 import {BiEdit} from 'react-icons/bi'
 
 
-function Todo({todos, completeTask, removeTask, updatedTask}) {
+function Todo({todos, completeTask, removeTask, modifyTask}) {
 
     const [modify, setModify] = useState({
         id : null,
@@ -13,7 +12,7 @@ function Todo({todos, completeTask, removeTask, updatedTask}) {
     });  
 
 const updateTask = value => {
-updatedTask (modify.id, value)
+modifyTask (modify.id, value)
 setModify({
     id: null,
     value: ''
